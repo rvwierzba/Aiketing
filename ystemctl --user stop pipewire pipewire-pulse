@@ -1,0 +1,26 @@
+[0;1;32m●[0m pipewire.service - PipeWire Multimedia Service
+     Loaded: loaded (/usr/lib/systemd/user/pipewire.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Fri 2025-05-02 09:20:33 -03; 12min ago
+TriggeredBy: [0;1;32m●[0m pipewire.socket
+   Main PID: 1485 (pipewire)
+      Tasks: 3 (limit: 18855)
+     Memory: 6.8M
+        CPU: 380ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/session.slice/pipewire.service
+             └─1485 /usr/bin/pipewire
+
+May 02 09:20:33 rvw-lptp systemd[1475]: Started PipeWire Multimedia Service.
+May 02 09:20:33 rvw-lptp pipewire[1485]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmod.jackdbus-detect: Failed to receive jackdbus reply: org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable[0m
+
+[0;1;32m●[0m pipewire-pulse.service - PipeWire PulseAudio
+     Loaded: loaded (/usr/lib/systemd/user/pipewire-pulse.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Fri 2025-05-02 09:20:33 -03; 12min ago
+TriggeredBy: [0;1;32m●[0m pipewire-pulse.socket
+   Main PID: 1490 (pipewire-pulse)
+      Tasks: 3 (limit: 18855)
+     Memory: 9.0M
+        CPU: 227ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/session.slice/pipewire-pulse.service
+             └─1490 /usr/bin/pipewire-pulse
+
+May 02 09:20:33 rvw-lptp systemd[1475]: Started PipeWire PulseAudio.
