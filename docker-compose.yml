@@ -1,49 +1,50 @@
-version: '3.8' # Versão da sintaxe do Docker Compose
-
 services:
   # Serviço do Banco de Dados PostgreSQL
   postgres_db:
-    image: postgres:15 # Usar uma versão específica do Postgres (ex: 15) é recomendado
-    container_name: aiketing_postgres # Nome amigável para o container
+    image: postgres:15
+    container_name: aiketing_postgres
     environment:
-      # Variáveis de ambiente para configurar o Postgres
-      # IMPORTANTE: Use as mesmas credenciais da sua ConnectionString ou atualize a ConnectionString!
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: '@071995' # Sua senha definida em appsettings.Development.json
-      POSTGRES_DB: aiketing_db # Nome do banco de dados (pode ser 'postgres' ou um nome específico)
+      POSTGRES_PASSWORD: '@071995'
+      POSTGRES_DB: aiketing_db
     ports:
-      # Mapeia a porta 5432 do host para a porta 5432 do container
-      # Isso permite que ferramentas no host (como dotnet ef) acessem o BD via localhost:5432
       - "5432:5432"
     volumes:
-      # Monta um volume nomeado para persistir os dados do banco
-      # Os dados ficarão salvos mesmo se o container for removido e recriado
       - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped # Reinicia o container a menos que ele tenha sido parado manualmente
+    restart: unless-stopped
 
-  # Serviço da API Backend (Opcional por enquanto, mas útil para rodar tudo junto)
-  # backend_api:
-  #   container_name: aiketing_backend
-  #   build:
-  #     context: . # O contexto é a pasta raiz onde está o docker-compose.yml
-  #     dockerfile: src/Backend/Dockerfile # Caminho para o Dockerfile do backend
-  #   ports:
-  #     # Mapeia uma porta do host (ex: 5000) para a porta 8080 exposta no Dockerfile
-  #     - "5000:8080"
-  #   environment:
-  #     # Sobrescreve a ConnectionString para usar o nome do serviço do BD na rede Docker
-  #     - ConnectionStrings__DefaultConnection=Host=postgres_db;Port=5432;Database=aiketing_db;Username=postgres;Password=@071995
-  #     # Outras variáveis de ambiente necessárias (ex: ASPNETCORE_ENVIRONMENT, URLs, JWT Keys, etc.)
-  #     - ASPNETCORE_ENVIRONMENT=Development # Ou Production
-  #     - ASPNETCORE_URLS=http://+:8080 # Garante que o Kestrel escute em todas as interfaces na porta 8080
-  #     - Jwt__Key=SUA_CHAVE_SECRETA_AQUI # Carregar de secrets ou env vars em produção
-  #     - Jwt__Issuer=https://seu_issuer.com
-  #     - Jwt__Audience=https://sua_audience.com
-  #     - HuggingFace__ApiKey=SUA_HF_API_KEY # Carregar de secrets ou env vars em produção
-  #   depends_on:
-  #     - postgres_db # Garante que o container do BD inicie antes do backend
+  # Serviço da API Backend
+  backend:
+    container_name: aiketing_backend
+    build:
+      context: .
+      dockerfile: src/Backend/Dockerfile # Vamos precisar criar este Dockerfile a seguir
+    ports:
+      - "5235:8080" # Mapeia a porta 5235 do host para a 8080 do container
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres_db;Port=5432;Database=aiketing_db;Username=postgres;Password=@071995
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      # Adicione outras variáveis de ambiente do seu appsettings.Development.json aqui
+      - Jwt__Key=${JWT_KEY}
+      - Jwt__Issuer=${JWT_ISSUER}
+      - Jwt__Audience=${JWT_AUDIENCE}
+      - Stripe__SecretKey=${STRIPE_SECRET_KEY}
+      - HuggingFace__ApiKey=${HUGGINGFACE_API_KEY}
+    depends_on:
+      - postgres_db
+    restart: on-failure
 
-# Define os volumes nomeados usados pelos serviços
+  # Serviço do Frontend Next.js
+  frontend:
+    container_name: aiketing_frontend
+    build:
+      context: ./client # O contexto é a pasta 'client'
+      dockerfile: Dockerfile # O nome do Dockerfile que criamos
+    ports:
+      - "3000:3000" # Mapeia a porta 3000 do host para a 3000 do container
+    restart: on-failure
+
 volumes:
   postgres_data:
-    driver: local # Usa o driver padrão de volumes locais do Docker
+    driver: local
