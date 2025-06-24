@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Estados para feedback ao usuário
+  // Estados para fornecer feedback ao usuário
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,16 +32,16 @@ const RegisterPage = () => {
       if (response.ok) {
         // Sucesso
         setMessage(t('RegisterPage.Success'));
-        setEmail('');
+        setEmail(''); // Limpa o formulário
         setPassword('');
       } else {
-        // Erro vindo da API
+        // Erro vindo da API (ex: email já existe)
         const errorData = await response.json();
         const errorMessage = errorData.errors ? errorData.errors.join(', ') : t('RegisterPage.GenericError');
         setError(errorMessage);
       }
     } catch (err) {
-      // Erro de rede ou de conexão
+      // Erro de rede ou de conexão com o backend
       console.error('Fetch error:', err);
       setError(t('RegisterPage.NetworkError'));
     } finally {
@@ -52,7 +52,7 @@ const RegisterPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Header />
-      <main className="flex-grow flex items-center justify-center">
+      <main className="flex-grow flex items-center justify-center p-4">
         <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-center text-gray-900">
             {t('RegisterPage.Title')}
@@ -93,9 +93,9 @@ const RegisterPage = () => {
               />
             </div>
 
-            {/* Exibição de mensagens de erro ou sucesso */}
-            {message && <p className="text-sm text-green-600">{message}</p>}
-            {error && <p className="text-sm text-red-600">{error}</p>}
+            {/* Mensagens de feedback para o usuário */}
+            {message && <div className="p-3 text-sm text-green-800 bg-green-100 rounded-md">{message}</div>}
+            {error && <div className="p-3 text-sm text-red-800 bg-red-100 rounded-md">{error}</div>}
 
             <button
               type="submit"

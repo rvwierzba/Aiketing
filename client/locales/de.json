@@ -2,7 +2,8 @@
   "Header": {
     "Login": "Anmelden",
     "Dashboard": "Dashboard",
-    "Pricing": "Preise"
+    "Pricing": "Preise",
+    "Logout": "Abmelden"
   },
   "Home": {
     "Title": "Erstellen Sie leistungsstarke Marketinginhalte mit künstlicher Intelligenz",
@@ -111,5 +112,26 @@
       "GenericError": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
       "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
       "Loading": "Konto wird erstellt..."
+    },
+    "LoginPage": {
+      "Title": "Greifen Sie auf Ihr Konto zu",
+      "EmailLabel": "Email",
+      "EmailPlaceholder": "Ihre registrierte E-Mail",
+      "PasswordLabel": "Passwort",
+      "ButtonText": "Anmelden",
+      "InvalidCredentials": "Ungültige E-Mail-Adresse oder Passwort. Bitte versuchen Sie es erneut.",
+      "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "Loading": "Anmeldung..."
+    },
+    "TextGeneratorPage": {
+      "Title": "Textinhaltsgenerator",
+      "Subtitle": "Beschreiben Sie Ihre Idee und lassen Sie die KI den Inhalt für Sie erstellen.",
+      "PromptLabel": "Was möchten Sie erstellen?",
+      "PromptPlaceholder": "z.B. Ein Instagram-Post über die Einführung eines neuen Kaffees, in freundlichem Ton und mit 3 Hashtags.",
+      "ButtonText": "Inhalt generieren",
+      "Loading": "Wird generiert...",
+      "ResultTitle": "Ihr generierter Inhalt:",
+      "GenericError": "Inhalt konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
+      "NetworkError": "Verbindungsfehler mit dem KI-Dienst."
     }
 }

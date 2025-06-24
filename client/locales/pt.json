@@ -1,8 +1,9 @@
 {
-  "Header": {
+ "Header": {
     "Login": "Entrar",
     "Dashboard": "Painel",
-    "Pricing": "Planos"
+    "Pricing": "Planos",
+    "Logout": "Sair"
   },
   "Home": {
     "Title": "Crie Conteúdo de Marketing Poderoso com Inteligência Artificial",
@@ -111,5 +112,26 @@
       "GenericError": "Ocorreu um erro. Por favor, tente novamente.",
       "NetworkError": "Erro de conexão. Verifique sua internet e tente novamente.",
       "Loading": "Criando conta..."
+    },
+    "LoginPage": {
+      "Title": "Acesse sua Conta",
+      "EmailLabel": "E-mail",
+      "EmailPlaceholder": "Seu e-mail cadastrado",
+      "PasswordLabel": "Senha",
+      "ButtonText": "Entrar",
+      "InvalidCredentials": "E-mail ou senha inválidos. Por favor, tente novamente.",
+      "NetworkError": "Erro de conexão. Verifique sua internet e tente novamente.",
+      "Loading": "Entrando..."
+    },
+    "TextGeneratorPage": {
+      "Title": "Gerador de Conteúdo de Texto",
+      "Subtitle": "Descreva sua ideia e deixe a IA criar o conteúdo para você.",
+      "PromptLabel": "O que você quer criar?",
+      "PromptPlaceholder": "Ex: Um post para Instagram sobre o lançamento de um novo café, com tom amigável e 3 hashtags.",
+      "ButtonText": "Gerar Conteúdo",
+      "Loading": "Gerando...",
+      "ResultTitle": "Seu Conteúdo Gerado:",
+      "GenericError": "Não foi possível gerar o conteúdo. Por favor, tente novamente.",
+      "NetworkError": "Erro de conexão com o serviço de IA."
     }
 }

@@ -2,7 +2,8 @@
   "Header": {
     "Login": "Login",
     "Dashboard": "Dashboard",
-    "Pricing": "Pricing"
+    "Pricing": "Pricing",
+    "Logout": "Logout"
   },
   "Home": {
     "Title": "Create Powerful Marketing Content with Artificial Intelligence",
@@ -111,5 +112,26 @@
       "GenericError": "An error occurred. Please try again.",
       "NetworkError": "Connection error. Please check your internet and try again.",
       "Loading": "Creating account..."
+    },
+    "LoginPage": {
+      "Title": "Access Your Account",
+      "EmailLabel": "Email",
+      "EmailPlaceholder": "Your registered email",
+      "PasswordLabel": "Password",
+      "ButtonText": "Sign In",
+      "InvalidCredentials": "Invalid email or password. Please try again.",
+      "NetworkError": "Connection error. Please check your internet and try again.",
+      "Loading": "Signing in..."
+    },
+    "TextGeneratorPage": {
+      "Title": "Text Content Generator",
+      "Subtitle": "Describe your idea and let the AI create the content for you.",
+      "PromptLabel": "What do you want to create?",
+      "PromptPlaceholder": "e.g., An Instagram post about a new coffee launch, with a friendly tone and 3 hashtags.",
+      "ButtonText": "Generate Content",
+      "Loading": "Generating...",
+      "ResultTitle": "Your Generated Content:",
+      "GenericError": "Could not generate content. Please try again.",
+      "NetworkError": "Connection error with the AI service."
     }
 }

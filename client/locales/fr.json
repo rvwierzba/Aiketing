@@ -2,7 +2,8 @@
   "Header": {
     "Login": "Connexion",
     "Dashboard": "Tableau de bord",
-    "Pricing": "Tarifs"
+    "Pricing": "Tarifs",
+    "Logout": "Se déconnecter"
   },
   "Home": {
     "Title": "Créez du contenu marketing puissant avec l'intelligence artificielle",
@@ -111,5 +112,26 @@
       "GenericError": "Une erreur est survenue. Veuillez réessayer.",
       "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.",
       "Loading": "Création du compte..."
+    },
+    "LoginPage": {
+      "Title": "Accédez à votre compte",
+      "EmailLabel": "E-mail",
+      "EmailPlaceholder": "Votre e-mail enregistré",
+      "PasswordLabel": "Mot de passe",
+      "ButtonText": "Se connecter",
+      "InvalidCredentials": "E-mail ou mot de passe invalide. Veuillez réessayer.",
+      "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion Internet et réessayer.",
+      "Loading": "Connexion en cours..."
+    },
+    "TextGeneratorPage": {
+      "Title": "Générateur de Contenu Texte",
+      "Subtitle": "Décrivez votre idée et laissez l'IA créer le contenu pour vous.",
+      "PromptLabel": "Que voulez-vous créer ?",
+      "PromptPlaceholder": "Ex: Une publication Instagram sur le lancement d'un nouveau café, sur un ton amical et avec 3 hashtags.",
+      "ButtonText": "Générer le Contenu",
+      "Loading": "Génération en cours...",
+      "ResultTitle": "Votre Contenu Généré :",
+      "GenericError": "Impossible de générer le contenu. Veuillez réessayer.",
+      "NetworkError": "Erreur de connexion avec le service d'IA."
     }
 }
