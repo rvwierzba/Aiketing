@@ -1,16 +1,15 @@
 // pages/login.tsx
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import { useI18n, getLocaleProps } from '../lib/i18n';
+import { useAuth } from '../context/AuthContext';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 const LoginPage = () => {
   const t = useI18n();
-  const router = useRouter();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,21 +21,17 @@ const LoginPage = () => {
     try {
       const response = await fetch('http://localhost:5235/api/auth/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        // SUCESSO! Salvamos o token no localStorage do navegador
-        localStorage.setItem('authToken', data.token);
-        // Redirecionamos o usuário para o dashboard
-        router.push('/dashboard');
+        login(data.token);
       } else {
-        // Erro de login (senha errada, usuário não existe)
-        setError(t('LoginPage.InvalidCredentials'));
+        const errorData = await response.json();
+        const errorMessage = errorData.errors ? errorData.errors.join(', ') : t('LoginPage.InvalidCredentials');
+        setError(errorMessage);
       }
     } catch (err) {
       console.error('Fetch error:', err);
@@ -60,12 +55,8 @@ const LoginPage = () => {
                 {t('LoginPage.EmailLabel')}
               </label>
               <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
+                id="email" name="email" type="email"
+                autoComplete="email" required value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder={t('LoginPage.EmailPlaceholder')}
@@ -77,21 +68,15 @@ const LoginPage = () => {
                 {t('LoginPage.PasswordLabel')}
               </label>
               <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                value={password}
+                id="password" name="password" type="password"
+                autoComplete="current-password" required value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 placeholder="********"
                 disabled={isLoading}
               />
             </div>
-
             {error && <div className="p-3 text-sm text-red-800 bg-red-100 rounded-md">{error}</div>}
-
             <button
               type="submit"
               disabled={isLoading}

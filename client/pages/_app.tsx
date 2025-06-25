@@ -1,14 +1,16 @@
 // pages/_app.tsx
-import type { AppProps } from 'next/app';
-import { I18nProvider } from '../lib/i18n'; // Mudamos para I18nProvider
 import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { I18nProvider } from '../lib/i18n';
+import { AuthProvider } from '../context/AuthContext';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    // Usamos o I18nProvider e passamos a propriedade 'locale' de pageProps
-    <I18nProvider locale={pageProps.locale}>
-      <Component {...pageProps} />
-    </I18nProvider>
+    <AuthProvider>
+      <I18nProvider locale={pageProps.i18n}>
+        <Component {...pageProps} />
+      </I18nProvider>
+    </AuthProvider>
   );
 }
 
