@@ -33,6 +33,9 @@ export const Header = () => {
               <Link href="/dashboard" className="text-gray-600 hover:text-brand-dark font-semibold">
                 {t('Header.Dashboard')}
               </Link>
+              <Link href="/history" className="text-gray-600 hover:text-brand-dark font-semibold">
+                {t('Header.History')}
+              </Link>
               <button
                 onClick={logout}
                 className="bg-red-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-red-600 text-sm"

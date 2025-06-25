@@ -3,7 +3,20 @@
     "Login": "Connexion",
     "Dashboard": "Tableau de bord",
     "Pricing": "Tarifs",
-    "Logout": "Se déconnecter"
+    "Logout": "Se déconnecter",
+    "History": "Historique"
+  },
+  "HistoryPage": {
+    "Title": "Votre Historique de Génération",
+    "Loading": "Chargement de votre historique...",
+    "ErrorLoading": "Impossible de charger l'historique. Veuillez réessayer.",
+    "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion Internet.",
+    "NoHistory": "Vous n'avez pas encore généré de contenu. Commencez à créer !",
+    "Table": {
+      "Date": "Date",
+      "Type": "Type",
+      "Prompt": "Prompt d'Entrée"
+    }
   },
   "Home": {
     "Title": "Créez du contenu marketing puissant avec l'intelligence artificielle",

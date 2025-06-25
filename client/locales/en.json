@@ -3,7 +3,20 @@
     "Login": "Login",
     "Dashboard": "Dashboard",
     "Pricing": "Pricing",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "History": "History"
+  },
+  "HistoryPage": {
+    "Title": "Your Generation History",
+    "Loading": "Loading your history...",
+    "ErrorLoading": "Could not load history. Please try again.",
+    "NetworkError": "Connection error. Please check your internet.",
+    "NoHistory": "You haven't generated any content yet. Start creating!",
+    "Table": {
+      "Date": "Date",
+      "Type": "Type",
+      "Prompt": "Input Prompt"
+    }
   },
   "Home": {
     "Title": "Create Powerful Marketing Content with Artificial Intelligence",

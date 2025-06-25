@@ -3,7 +3,20 @@
     "Login": "Anmelden",
     "Dashboard": "Dashboard",
     "Pricing": "Preise",
-    "Logout": "Abmelden"
+    "Logout": "Abmelden",
+    "History": "Verlauf"
+  },
+  "HistoryPage": {
+    "Title": "Ihr Generierungsverlauf",
+    "Loading": "Ihr Verlauf wird geladen...",
+    "ErrorLoading": "Verlauf konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.",
+    "NoHistory": "Sie haben noch keine Inhalte generiert. Fangen Sie an zu erstellen!",
+    "Table": {
+      "Date": "Datum",
+      "Type": "Typ",
+      "Prompt": "Eingabeaufforderung"
+    }
   },
   "Home": {
     "Title": "Erstellen Sie leistungsstarke Marketinginhalte mit künstlicher Intelligenz",

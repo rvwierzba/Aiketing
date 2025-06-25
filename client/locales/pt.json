@@ -3,7 +3,20 @@
     "Login": "Entrar",
     "Dashboard": "Painel",
     "Pricing": "Planos",
-    "Logout": "Sair"
+    "Logout": "Sair",
+    "History": "Histórico"
+  },
+  "HistoryPage": {
+    "Title": "Seu Histórico de Gerações",
+    "Loading": "Carregando seu histórico...",
+    "ErrorLoading": "Não foi possível carregar o histórico. Por favor, tente novamente.",
+    "NetworkError": "Erro de conexão. Verifique sua internet.",
+    "NoHistory": "Você ainda não gerou nenhum conteúdo. Comece a criar!",
+    "Table": {
+      "Date": "Data",
+      "Type": "Tipo",
+      "Prompt": "Prompt de Entrada"
+    }
   },
   "Home": {
     "Title": "Crie Conteúdo de Marketing Poderoso com Inteligência Artificial",
