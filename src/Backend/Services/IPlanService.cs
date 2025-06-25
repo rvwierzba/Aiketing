@@ -1,6 +1,6 @@
 // src/Backend/Services/IPlanService.cs
 using Backend.Models.Plans;
-using System.Collections.Generic; // Necessário para IEnumerable
+using System.Collections.Generic;
 
 namespace Backend.Services
 {
@@ -8,6 +8,7 @@ namespace Backend.Services
     {
         PlanDetails? GetPlanDetails(string? planName);
         PlanDetails GetDefaultPlan();
-        IEnumerable<PlanDetails> GetAllPlans(); // Método para buscar todos os planos
+        IEnumerable<PlanDetails> GetAllPlans();
+        PlanDetails? GetPlanByStripePriceId(string priceId);
     }
 }

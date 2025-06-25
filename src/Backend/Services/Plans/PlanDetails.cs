@@ -1,3 +1,4 @@
+// src/Backend/Models/Plans/PlanDetails.cs
 using System.Collections.Generic;
 
 namespace Backend.Models.Plans
