@@ -6,18 +6,6 @@
     "Logout": "Abmelden",
     "History": "Verlauf"
   },
-  "HistoryPage": {
-    "Title": "Ihr Generierungsverlauf",
-    "Loading": "Ihr Verlauf wird geladen...",
-    "ErrorLoading": "Verlauf konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
-    "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.",
-    "NoHistory": "Sie haben noch keine Inhalte generiert. Fangen Sie an zu erstellen!",
-    "Table": {
-      "Date": "Datum",
-      "Type": "Typ",
-      "Prompt": "Eingabeaufforderung"
-    }
-  },
   "Home": {
     "Title": "Erstellen Sie leistungsstarke Marketinginhalte mit künstlicher Intelligenz",
     "Subtitle": "AIketing ermöglicht es Ihnen, wirkungsvolle Texte und Visuals für Ihre Kampagnen zu erstellen, auch ohne Marketing- oder Design-Erfahrung."
@@ -26,15 +14,15 @@
     "Title": "Alles, was Sie zum Wachsen brauchen",
     "Time": {
       "Title": "Zeitersparnis",
-      "Description": "Lassen Sie die KI das schwere Texten übernehmen und konzentrieren Sie sich auf Ihre Strategie."
+      "Description": "Lassen Sie die KI das schwere Texten übernehmen und konzentrieren Sie sich auf Ihre Wachstumsstrategie."
     },
     "Quality": {
       "Title": "Qualitätsinhalte",
-      "Description": "Erstellen Sie optimierte Texte und Bilder, die Ihre Zielgruppe ansprechen."
+      "Description": "Erstellen Sie optimierte Texte und Bilder, die Ihre Zielgruppe ansprechen und Ihre Marke stärken."
     },
     "Autonomy": {
       "Title": "Vollständige Autonomie",
-      "Description": "Kontrollieren Sie Ihr eigenes Marketing, ohne auf teure Agenturen angewiesen zu sein."
+      "Description": "Kontrollieren Sie Ihr eigenes Marketing von Anfang bis Ende, ohne auf teure Agenturen angewiesen zu sein."
     }
   },
   "HowItWorks": {
@@ -63,6 +51,7 @@
         "Price": "€0",
         "Period": "Monat",
         "ButtonText": "Jetzt starten",
+        "LoadingText": "Bitte warten...",
         "Features": [
           "5 Textgenerierungen/Monat",
           "3 Thumbnail-Generierungen/Monat",
@@ -75,6 +64,7 @@
         "Price": "14",
         "Period": "Monat",
         "ButtonText": "Essentiell wählen",
+        "LoadingText": "Bitte warten...",
         "Features": [
           "50 Textgenerierungen/Monat",
           "20 Thumbnail-Generierungen/Monat",
@@ -87,6 +77,7 @@
         "Price": "45",
         "Period": "Monat",
         "ButtonText": "Pro wählen",
+        "LoadingText": "Bitte warten...",
         "Features": [
           "200 Textgenerierungen/Monat",
           "100 Thumbnail-Generierungen/Monat",
@@ -104,47 +95,68 @@
     "Copyright": "© {year} AIketing. Alle Rechte vorbehalten.",
     "CreatedBy": "Erstellt von"
   },
-    "DashboardPage": {
-      "Title": "Ihr Dashboard",
-      "Subtitle": "Hier ist eine Zusammenfassung Ihres {plan}-Plans und Ihrer aktuellen Nutzung.",
-      "Loading": "Informationen werden geladen...",
-      "TextUsage": {
-        "Title": "Nutzung der Textgenerierung"
-      },
-      "ImageUsage": {
-        "Title": "Nutzung der Thumbnail-Generierung"
-      }
-    },
-    "RegisterPage": {
-      "Title": "Erstellen Sie Ihr kostenloses Konto",
-      "EmailLabel": "E-Mail-Addresse",
-      "EmailPlaceholder": "sie@beispiel.com",
-      "PasswordLabel": "Passwort",
-      "ButtonText": "Konto erstellen",
-      "Success": "Konto erfolgreich erstellt! Sie können sich jetzt anmelden.",
-      "GenericError": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-      "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
-      "Loading": "Konto wird erstellt..."
-    },
-    "LoginPage": {
+  "RegisterPage": {
+    "Title": "Erstellen Sie Ihr kostenloses Konto",
+    "EmailLabel": "E-Mail-Addresse",
+    "EmailPlaceholder": "sie@beispiel.com",
+    "PasswordLabel": "Passwort",
+    "ButtonText": "Konto erstellen",
+    "Success": "Konto erfolgreich erstellt! Sie können sich jetzt anmelden.",
+    "GenericError": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "Loading": "Konto wird erstellt...",
+    "AlreadyHaveAccount": "Haben Sie bereits ein Konto? ",
+    "LoginLink": "Anmelden"
+  },
+  "LoginPage": {
       "Title": "Greifen Sie auf Ihr Konto zu",
-      "EmailLabel": "Email",
+      "EmailLabel": "E-Mail",
       "EmailPlaceholder": "Ihre registrierte E-Mail",
       "PasswordLabel": "Passwort",
       "ButtonText": "Anmelden",
       "InvalidCredentials": "Ungültige E-Mail-Adresse oder Passwort. Bitte versuchen Sie es erneut.",
-      "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "NetworkError": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.",
       "Loading": "Anmeldung..."
+  },
+  "DashboardPage": {
+      "Title": "Ihr Dashboard",
+      "Subtitle": "Hier ist eine Zusammenfassung Ihres {plan}-Plans und Ihrer aktuellen Nutzung.",
+      "Loading": "Informationen werden geladen...",
+      "AuthError": "Ihre Sitzung ist abgelaufen oder ungültig. Bitte melden Sie sich erneut an.",
+      "NetworkError": "Dashboard-Daten konnten nicht geladen werden. Überprüfen Sie Ihre Verbindung.",
+      "TextUsage": { "Title": "Nutzung der Textgenerierung" },
+      "ImageUsage": { "Title": "Nutzung der Thumbnail-Generierung" },
+      "CtaButtonText": "Neuen Textinhalt erstellen",
+      "CtaButtonImage": "Neues Thumbnail erstellen"
+  },
+  "TextGeneratorPage": {
+    "Title": "Intelligenter Inhaltsgenerator",
+    "Subtitle": "Wählen Sie ein Format, beschreiben Sie Ihre Idee und lassen Sie die KI den Rest erledigen.",
+    "ContentTypeLabel": "Welche Art von Inhalt möchten Sie erstellen?",
+    "Templates": {
+        "instagramPost": "Beitrag für Instagram",
+        "twitterThread": "Thread für Twitter/X",
+        "reelsScript": "Skript für Reels/TikTok",
+        "emailMarketing": "E-Mail-Marketing"
     },
-    "TextGeneratorPage": {
-      "Title": "Textinhaltsgenerator",
-      "Subtitle": "Beschreiben Sie Ihre Idee und lassen Sie die KI den Inhalt für Sie erstellen.",
-      "PromptLabel": "Was möchten Sie erstellen?",
-      "PromptPlaceholder": "z.B. Ein Instagram-Post über die Einführung eines neuen Kaffees, in freundlichem Ton und mit 3 Hashtags.",
-      "ButtonText": "Inhalt generieren",
-      "Loading": "Wird generiert...",
-      "ResultTitle": "Ihr generierter Inhalt:",
-      "GenericError": "Inhalt konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
-      "NetworkError": "Verbindungsfehler mit dem KI-Dienst."
-    }
+    "TopicLabel": "Zu welchem Thema oder Produkt?",
+    "TopicPlaceholder": "z.B. Die Einführung eines neuen Parfums mit Kaffeeduft und einer provokanten Note.",
+    "ButtonText": "Inhalt generieren",
+    "Loading": "Wird generiert...",
+    "ResultTitle": "Ihr generierter Inhalt:",
+    "GenericError": "Inhalt konnte nicht generiert werden. Versuchen Sie, Ihr Thema zu verfeinern.",
+    "NetworkError": "Verbindungsfehler mit dem KI-Dienst."
+  },
+  "ImageGeneratorPage": {
+      "Title": "KI-Thumbnail-Generator",
+      "Subtitle": "Erstellen Sie in Sekunden wirkungsvolle Bilder für Ihre Videos und Beiträge.",
+      "PromptLabel": "Beschreiben Sie das Bild, das Sie erstellen möchten",
+      "PromptPlaceholder": "z.B. Ein Astronaut, der sich an einem Strand auf dem Mars entspannt, digitaler Kunststil.",
+      "ButtonText": "Bild generieren",
+      "Loading": "Bild wird generiert... Dies kann einen Moment dauern.",
+      "ResultTitle": "Ihr generiertes Bild:",
+      "GenericError": "Das Bild konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
+      "NetworkError": "Verbindungsfehler mit dem KI-Dienst.",
+      "NoImageReturned": "Die KI hat Ihre Anfrage bearbeitet, aber kein Bild zurückgegeben. Versuchen Sie eine andere Eingabeaufforderung."
+  }
 }

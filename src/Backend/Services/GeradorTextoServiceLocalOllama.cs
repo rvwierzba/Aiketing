@@ -1,79 +1,38 @@
-// Services/GeradorTextoServiceLocalOllama.cs
-using System;
+// src/Backend/Services/GeradorTextoServiceLocalOllama.cs
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-// Importe o namespace da sua interface se estiver em namespace diferente
-// using SeuProjetoBackend.Services; // Exemplo se o projeto for SeuProjetoBackend
 
-namespace Backend.Services;
-
-public class GeradorTextoServiceLocalOllama : IGeradorTextoService
+namespace Backend.Services
 {
-    private readonly HttpClient _httpClient;
-    // O endereço da API do Ollama local.
-    // Se o Ollama estivesse em outro container Docker na mesma rede, o host seria o nome do container.
-    // Mas para testar localmente na sua máquina, é localhost.
-    private readonly string _ollamaApiUrl = "http://localhost:11434/api/generate";
-
-    public GeradorTextoServiceLocalOllama(HttpClient httpClient)
+    public class GeradorTextoServiceLocalOllama : IGeradorTextoService
     {
-        _httpClient = httpClient;
-    }
+        private readonly IHttpClientFactory _httpClientFactory;
 
-    public async Task<string> GenerateTextAsync(string prompt, string modelName)
-    {
-        // Cria o corpo da requisição JSON que o endpoint /api/generate do Ollama espera
-        var requestBody = new
+        public GeradorTextoServiceLocalOllama(IHttpClientFactory httpClientFactory)
         {
-            model = modelName, // O nome do modelo a ser usado (Ex: "tinyllama")
-            prompt = prompt,   // O texto de entrada / instrução
-            stream = false     // Estamos pedindo a resposta completa de uma vez (não em streaming)
-        };
+            _httpClientFactory = httpClientFactory;
+        }
 
-        // Serializa o objeto C# para uma string JSON
-        var jsonBody = JsonSerializer.Serialize(requestBody);
-        // Cria o conteúdo HTTP da requisição
-        var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-        try
+        public async Task<string> GerarTextoAsync(string prompt, string modelName)
         {
-            // Faz a chamada HTTP POST assíncrona para a API do Ollama
-            HttpResponseMessage response = await _httpClient.PostAsync(_ollamaApiUrl, content);
+            var client = _httpClientFactory.CreateClient();
+            var requestData = new { model = modelName, prompt = prompt, stream = false };
+            var content = new StringContent(JsonSerializer.Serialize(requestData), Encoding.UTF8, "application/json");
 
-            // Verifica se a resposta da API do Ollama foi bem-sucedida (status code 2xx)
-            response.EnsureSuccessStatusCode();
+            // CORREÇÃO: Dentro do Docker, os serviços se comunicam pelos nomes, não por localhost.
+            var response = await client.PostAsync("http://ollama:11434/api/generate", content);
 
-            // Lê o corpo da resposta HTTP como uma string (esperamos JSON)
-            string responseBody = await response.Content.ReadAsStringAsync();
-
-            // Deserializa a resposta JSON para extrair o texto gerado
-            // A resposta do Ollama API /api/generate (sem stream=false) é um JSON com uma chave "response"
-            using (JsonDocument doc = JsonDocument.Parse(responseBody))
+            if (response.IsSuccessStatusCode)
             {
-                // Tenta obter o valor da chave "response" no JSON
-                if (doc.RootElement.TryGetProperty("response", out JsonElement responseElement))
-                {
-                    // Retorna o texto encontrado na chave "response", ou string vazia se for null
-                    return responseElement.GetString() ?? string.Empty;
-                }
-                // Se a resposta JSON não tiver a chave "response" esperada, lança um erro ou retorna algo indicativo
-                throw new Exception($"Resposta da API Ollama em formato inesperado. JSON recebido: {responseBody}");
+                var responseString = await response.Content.ReadAsStringAsync();
+                using var jsonDoc = JsonDocument.Parse(responseString);
+                return jsonDoc.RootElement.GetProperty("response").GetString() ?? "Não foi possível extrair a resposta.";
             }
-        }
-        catch (HttpRequestException e)
-        {
-            // Captura erros de comunicação HTTP (problemas de conexão com o Ollama, etc.)
-            Console.WriteLine($"[HTTP REQUEST ERROR] Erro ao chamar API Ollama ({_ollamaApiUrl}): {e.Message}");
-            // Para o MVP, retornamos uma mensagem de erro simples. Em produção, você logaria isso e trataria melhor.
-            return $"Erro de comunicação com o serviço de IA local: {e.Message}";
-        }
-        catch (Exception e)
-        {
-            // Captura outros erros que possam ocorrer (ex: erro na deserialização JSON)
-            Console.WriteLine($"[GENERAL ERROR] Erro inesperado ao processar resposta da API Ollama: {e.Message}");
-             return $"Erro inesperado ao processar resposta da IA: {e.Message}";
+
+            var errorBody = await response.Content.ReadAsStringAsync();
+            return $"Erro ao se comunicar com o Ollama: {response.ReasonPhrase} - {errorBody}";
         }
     }
 }

@@ -6,13 +6,15 @@ export const LanguageSwitcher = () => {
   const changeLocale = useChangeLocale();
   const currentLocale = useCurrentLocale();
 
+  // A CORREÇÃO ESTÁ AQUI: Adicionamos "as const".
+  // Isso diz ao TypeScript que os valores são exatos e não podem mudar.
   const locales = [
     { code: 'pt', name: 'Português', flag: '/flags/br.svg' },
     { code: 'en', name: 'English', flag: '/flags/us.svg' },
     { code: 'de', name: 'Deutsch', flag: '/flags/de.svg' },
     { code: 'fr', name: 'Français', flag: '/flags/fr.svg' },
     { code: 'ru', name: 'Русский', flag: '/flags/ru.svg' },
-  ];
+  ] as const;
 
   return (
     <div className="flex items-center gap-2">
@@ -22,7 +24,7 @@ export const LanguageSwitcher = () => {
           onClick={() => changeLocale(locale.code)}
           className={`p-1 rounded-sm transition-opacity ${
             currentLocale === locale.code
-              ? 'opacity-100 ring-2 ring-brand-blue' // Destaque para o idioma ativo
+              ? 'opacity-100 ring-2 ring-brand-blue'
               : 'opacity-60 hover:opacity-100'
           }`}
           aria-label={`Mudar idioma para ${locale.name}`}

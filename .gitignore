@@ -1,14 +1,12 @@
 # Arquivo .gitignore para o projeto AIketing (Backend .NET e Frontend Next.js)
 
-# Ignora arquivos de sistema operacional
-# -----------------------------------
+# Arquivos de sistema operacional
 .DS_Store
 Thumbs.db
 ehthumbs.db
 desktop.ini
 
-# Ignora arquivos de IDEs e editores de código
-# --------------------------------------------
+# Arquivos de IDEs e editores de código
 .vscode/
 .idea/
 *.suo
@@ -16,37 +14,24 @@ desktop.ini
 *.userosscache
 *.sln.docstates
 
-# --- Backend: .NET / ASP.NET Core ---
-# ------------------------------------
+# Arquivos de log e temporários
+*.log
+*.log.*
+*.tlog
+*.tmp
+*.temp
 
+# --- Backend: .NET / ASP.NET Core ---
 # Ignora diretórios de compilação e build
 [Bb]in/
 [Oo]bj/
 
-# Arquivos de segredos do usuário
+# Arquivos de segredos do usuário (NUNCA envie para o repositório!)
 secrets.json
-appsettings.Development.json # Descomente esta linha se seu arquivo de desenvolvimento contiver senhas ou chaves secretas.
-
-# Logs e arquivos de cache do .NET
-*.log
-*.log.*
-*.tlog
-*.psess
-*.vsp
-*.vspx
-*.pyc
-*.pyo
-
-# Arquivos gerados pelo Entity Framework
-_efmigrationshistory/
-
-# Arquivos do Rider
-.idea/
-*.sln.iml
+appsettings.Development.json
+user-secrets.json
 
 # --- Frontend: Node.js / Next.js ---
-# -----------------------------------
-
 # Dependências
 node_modules/
 
@@ -64,19 +49,13 @@ out/
 .env.development.local
 .env.test.local
 .env.production.local
+.env # Ignora o arquivo .env principal que contém as chaves
 
 # Cache de testes e outros
 .swc/
 .jest_cache/
 coverage/
 
-# Arquivos de configuração específicos do editor
-.project
-.settings
-.history
-
-# --- Docker (Opcional) ---
-# -------------------------
-
-# Descomente a linha abaixo se você usar um arquivo de override local para o Docker
-# docker-compose.override.yml
+# --- Docker ---
+# Ignora arquivos de override locais
+docker-compose.override.yml

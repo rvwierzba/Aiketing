@@ -9,6 +9,7 @@ namespace Backend.Data;
 public class ApplicationDbContext : IdentityDbContext<User>
 {
     public DbSet<GenerationHistory> GenerationHistory { get; set; }
+    public DbSet<Project> Projects { get; set; }
 
 
     // O construtor precisa passar as opções para o construtor base

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'standalone',
 
   // Este bloco informa ao Next.js sobre seus idiomas
   // e é o método correto para a sua estrutura de projeto.

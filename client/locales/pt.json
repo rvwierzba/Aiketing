@@ -137,14 +137,28 @@
       "Loading": "Entrando..."
     },
     "TextGeneratorPage": {
-      "Title": "Gerador de Conteúdo de Texto",
-      "Subtitle": "Descreva sua ideia e deixe a IA criar o conteúdo para você.",
-      "PromptLabel": "O que você quer criar?",
-      "PromptPlaceholder": "Ex: Um post para Instagram sobre o lançamento de um novo café, com tom amigável e 3 hashtags.",
+      "Title": "Gerador de Conteúdo Inteligente",
+      "Subtitle": "Escolha um formato, descreva sua ideia e deixe a IA fazer o resto.",
+      "ContentTypeLabel": "Qual tipo de conteúdo você quer criar?",
+      "Templates": {
+        "instagramPost": "Post para Instagram",
+        "twitterThread": "Thread para Twitter/X",
+        "reelsScript": "Roteiro para Reels/TikTok",
+        "emailMarketing": "E-mail Marketing"
+      },
+      "TopicLabel": "Sobre qual tópico ou produto?",
+      "TopicPlaceholder": "Ex: O lançamento de um novo perfume com cheiro de café e uma pegada provocante.",
       "ButtonText": "Gerar Conteúdo",
       "Loading": "Gerando...",
       "ResultTitle": "Seu Conteúdo Gerado:",
-      "GenericError": "Não foi possível gerar o conteúdo. Por favor, tente novamente.",
+      "GenericError": "Não foi possível gerar o conteúdo. Tente refinar seu tópico.",
       "NetworkError": "Erro de conexão com o serviço de IA."
+    },
+    "IdentityErrors": {
+      "PasswordTooShort": "A senha deve ter pelo menos 8 caracteres.",
+      "PasswordRequiresNonAlphanumeric": "A senha deve ter pelo menos um caractere especial (ex: @, #, !, $).",
+      "PasswordRequiresLower": "A senha deve ter pelo menos uma letra minúscula ('a'-'z').",
+      "PasswordRequiresUpper": "A senha deve ter pelo menos uma letra maiúscula ('A'-'Z').",
+      "PasswordRequiresDigit": "A senha deve ter pelo menos um número ('0'-'9')."
     }
 }

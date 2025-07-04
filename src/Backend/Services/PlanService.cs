@@ -17,8 +17,8 @@ namespace Backend.Services
             _plans = new List<PlanDetails>
             {
                 new PlanDetails { InternalName = "Free", DisplayName = "Free", Price = 0, TextGenerationsLimit = 5, ThumbnailGenerationsLimit = 3, StripePriceId = "free_plan" },
-                new PlanDetails { InternalName = "Paid1", DisplayName = "AIketing Essencial", Price = 29, TextGenerationsLimit = 50, ThumbnailGenerationsLimit = 20, StripePriceId = priceIds.GetValueOrDefault("AIketingEssencialMensal") },
-                new PlanDetails { InternalName = "Paid2", DisplayName = "AIketing Pro", Price = 99, TextGenerationsLimit = 200, ThumbnailGenerationsLimit = 100, StripePriceId = priceIds.GetValueOrDefault("AIketingProMensal") }
+                new PlanDetails { InternalName = "AIketingEssencialMensal", DisplayName = "AIketing Essencial", Price = 29, TextGenerationsLimit = 50, ThumbnailGenerationsLimit = 20, StripePriceId = priceIds.GetValueOrDefault("AIketingEssencialMensal") ?? "" },
+                new PlanDetails { InternalName = "AIketingProMensal", DisplayName = "AIketing Pro", Price = 99, TextGenerationsLimit = 200, ThumbnailGenerationsLimit = 100, StripePriceId = priceIds.GetValueOrDefault("AIketingProMensal") ?? "" }
             };
         }
 

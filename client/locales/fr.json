@@ -136,15 +136,41 @@
       "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion Internet et réessayer.",
       "Loading": "Connexion en cours..."
     },
-    "TextGeneratorPage": {
-      "Title": "Générateur de Contenu Texte",
-      "Subtitle": "Décrivez votre idée et laissez l'IA créer le contenu pour vous.",
-      "PromptLabel": "Que voulez-vous créer ?",
-      "PromptPlaceholder": "Ex: Une publication Instagram sur le lancement d'un nouveau café, sur un ton amical et avec 3 hashtags.",
+   "TextGeneratorPage": {
+      "Title": "Générateur de Contenu Intelligent",
+      "Subtitle": "Choisissez un format, décrivez votre idée et laissez l'IA faire le reste.",
+      "ContentTypeLabel": "Quel type de contenu souhaitez-vous créer ?",
+      "Templates": {
+        "instagramPost": "Publication pour Instagram",
+        "twitterThread": "Fil pour Twitter/X",
+        "reelsScript": "Script pour Reels/TikTok",
+        "emailMarketing": "E-mail Marketing"
+      },
+      "TopicLabel": "Sur quel sujet ou produit ?",
+      "TopicPlaceholder": "Ex: Le lancement d'un nouveau parfum à l'odeur de café avec une touche provocante.",
       "ButtonText": "Générer le Contenu",
       "Loading": "Génération en cours...",
       "ResultTitle": "Votre Contenu Généré :",
-      "GenericError": "Impossible de générer le contenu. Veuillez réessayer.",
+      "GenericError": "Impossible de générer le contenu. Essayez d'affiner votre sujet.",
       "NetworkError": "Erreur de connexion avec le service d'IA."
+    },
+    "ImageGeneratorPage": {
+      "Title": "Générateur de Vignettes IA",
+      "Subtitle": "Créez des visuels percutants pour vos vidéos et publications en quelques secondes.",
+      "PromptLabel": "Décrivez l'image que vous souhaitez créer",
+      "PromptPlaceholder": "Ex: Un astronaute se relaxant sur une plage de Mars, style art numérique.",
+      "ButtonText": "Générer l'Image",
+      "Loading": "Génération de l'image... Cela peut prendre un moment.",
+      "ResultTitle": "Votre Image Générée :",
+      "GenericError": "Impossible de générer l'image. Veuillez réessayer.",
+      "NetworkError": "Erreur de connexion avec le service d'IA.",
+      "NoImageReturned": "L'IA a traité votre demande mais n'a pas renvoyé d'image. Essayez une autre instruction."
+    },
+    "IdentityErrors": {
+      "PasswordTooShort": "Les mots de passe doivent comporter au moins 8 caractères.",
+      "PasswordRequiresNonAlphanumeric": "Les mots de passe doivent contenir au moins un caractère non alphanumérique.",
+      "PasswordRequiresLower": "Les mots de passe doivent contenir au moins une lettre minuscule ('a'-'z').",
+      "PasswordRequiresUpper": "Les mots de passe doivent contenir au menos une lettre majuscule ('A'-'Z').",
+      "PasswordRequiresDigit": "Les mots de passe doivent contenir au moins un chiffre ('0'-'9')."
     }
 }

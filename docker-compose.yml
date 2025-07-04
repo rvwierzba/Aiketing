@@ -1,50 +1,52 @@
 services:
-  # Serviço do Banco de Dados PostgreSQL
-  postgres_db:
+  aiketing-db:
     image: postgres:15
-    container_name: aiketing_postgres
+    container_name: aiketing-db-container
+    restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: '@071995'
-      POSTGRES_DB: aiketing_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=@071995
+      - POSTGRES_DB=aiketing_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
 
-  # Serviço da API Backend
+  ollama:
+    image: ollama/ollama
+    container_name: aiketing-ollama-container
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
   backend:
-    container_name: aiketing_backend
+    container_name: aiketing-backend-container
     build:
       context: .
-      dockerfile: src/Backend/Dockerfile # Vamos precisar criar este Dockerfile a seguir
+      dockerfile: src/Backend/Dockerfile
     ports:
-      - "5235:8080" # Mapeia a porta 5235 do host para a 8080 do container
-    environment:
-      - ConnectionStrings__DefaultConnection=Host=postgres_db;Port=5432;Database=aiketing_db;Username=postgres;Password=@071995
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:8080
-      # Adicione outras variáveis de ambiente do seu appsettings.Development.json aqui
-      - Jwt__Key=${JWT_KEY}
-      - Jwt__Issuer=${JWT_ISSUER}
-      - Jwt__Audience=${JWT_AUDIENCE}
-      - Stripe__SecretKey=${STRIPE_SECRET_KEY}
-      - HuggingFace__ApiKey=${HUGGINGFACE_API_KEY}
+      - "5235:8080" 
     depends_on:
-      - postgres_db
-    restart: on-failure
+      - aiketing-db
+      - ollama
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=aiketing-db;Port=5432;Database=aiketing_db;Username=postgres;Password=@071995
+      - ASPNETCORE_URLS=http://+:8080
 
-  # Serviço do Frontend Next.js
-  frontend:
-    container_name: aiketing_frontend
+  client:
+    container_name: aiketing-client-container
     build:
-      context: ./client # O contexto é a pasta 'client'
-      dockerfile: Dockerfile # O nome do Dockerfile que criamos
+      context: ./client
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000" # Mapeia a porta 3000 do host para a 3000 do container
-    restart: on-failure
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=http://backend:8080
 
 volumes:
   postgres_data:
-    driver: local
+  ollama_data:
