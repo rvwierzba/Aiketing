@@ -1,5 +1,3 @@
-# Arquivo .gitignore para o projeto AIketing (Backend .NET e Frontend Next.js)
-
 # Arquivos de sistema operacional
 .DS_Store
 Thumbs.db
@@ -17,9 +15,9 @@ desktop.ini
 # Arquivos de log e temporários
 *.log
 *.log.*
-*.tlog
 *.tmp
 *.temp
+.~lock.*
 
 # --- Backend: .NET / ASP.NET Core ---
 # Ignora diretórios de compilação e build
@@ -33,23 +31,21 @@ user-secrets.json
 
 # --- Frontend: Node.js / Next.js ---
 # Dependências
-node_modules/
+/client/node_modules
+/client/.next
 
 # Logs do NPM e Yarn
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
 
 # Diretório de build do Next.js
-.next/
-out/
+/client/out/
 
 # Arquivos de ambiente locais (NUNCA envie para o repositório!)
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env # Ignora o arquivo .env principal que contém as chaves
+.env
+.env.*
+!.env.example
 
 # Cache de testes e outros
 .swc/

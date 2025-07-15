@@ -63,6 +63,7 @@
         "Price": "0€",
         "Period": "mois",
         "ButtonText": "Commencer",
+        "LoadingText": "Traitement...",
         "Features": [
           "5 Générations de texte/mois",
           "3 Générations de vignettes/mois",
@@ -75,6 +76,7 @@
         "Price": "14",
         "Period": "mois",
         "ButtonText": "Choisir Essentiel",
+        "LoadingText": "Traitement...",
         "Features": [
           "50 Générations de texte/mois",
           "20 Générations de vignettes/mois",
@@ -87,6 +89,7 @@
         "Price": "45",
         "Period": "mois",
         "ButtonText": "Choisir Pro",
+        "LoadingText": "Traitement...",
         "Features": [
           "200 Générations de texte/mois",
           "100 Générations de vignettes/mois",
@@ -104,73 +107,77 @@
     "Copyright": "© {year} AIketing. Tous droits réservés.",
     "CreatedBy": "Créé par"
   },
-    "DashboardPage": {
-      "Title": "Votre Tableau de Bord",
-      "Subtitle": "Voici un résumé de votre forfait {plan} et de votre utilisation actuelle.",
-      "Loading": "Chargement des informations...",
-      "TextUsage": {
-        "Title": "Utilisation de la Génération de Texte"
-      },
-      "ImageUsage": {
-        "Title": "Utilisation de la Génération de Vignettes"
-      }
+  "DashboardPage": {
+    "Title": "Votre Tableau de Bord",
+    "Subtitle": "Voici un résumé de votre forfait {plan} et de votre utilisation actuelle.",
+    "Loading": "Chargement des informations...",
+    "AuthError": "Votre session a expiré ou est invalide. Veuillez vous reconnecter.",
+    "NetworkError": "Impossible de charger les données du tableau de bord. Vérifiez votre connexion.",
+    "TextUsage": {
+      "Title": "Utilisation de la Génération de Texte"
     },
-    "RegisterPage": {
-      "Title": "Créez votre compte gratuit",
-      "EmailLabel": "Adresse e-mail",
-      "EmailPlaceholder": "vous@exemple.com",
-      "PasswordLabel": "Mot de passe",
-      "ButtonText": "Créer un compte",
-      "Success": "Compte créé avec succès ! Vous pouvez maintenant vous connecter.",
-      "GenericError": "Une erreur est survenue. Veuillez réessayer.",
-      "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.",
-      "Loading": "Création du compte..."
+    "ImageUsage": {
+      "Title": "Utilisation de la Génération de Vignettes"
     },
-    "LoginPage": {
-      "Title": "Accédez à votre compte",
-      "EmailLabel": "E-mail",
-      "EmailPlaceholder": "Votre e-mail enregistré",
-      "PasswordLabel": "Mot de passe",
-      "ButtonText": "Se connecter",
-      "InvalidCredentials": "E-mail ou mot de passe invalide. Veuillez réessayer.",
-      "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion Internet et réessayer.",
-      "Loading": "Connexion en cours..."
+    "CtaButtonText": "Créer un nouveau contenu texte",
+    "CtaButtonImage": "Créer une nouvelle vignette"
+  },
+  "RegisterPage": {
+    "Title": "Créez votre compte gratuit",
+    "EmailLabel": "Adresse e-mail",
+    "EmailPlaceholder": "vous@exemple.com",
+    "PasswordLabel": "Mot de passe",
+    "ButtonText": "Créer un compte",
+    "Success": "Compte créé avec succès ! Vous pouvez maintenant vous connecter.",
+    "GenericError": "Une erreur est survenue. Veuillez réessayer.",
+    "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.",
+    "Loading": "Création du compte..."
+  },
+  "LoginPage": {
+    "Title": "Accédez à votre compte",
+    "EmailLabel": "E-mail",
+    "EmailPlaceholder": "Votre e-mail enregistré",
+    "PasswordLabel": "Mot de passe",
+    "ButtonText": "Se connecter",
+    "InvalidCredentials": "E-mail ou mot de passe invalide. Veuillez réessayer.",
+    "NetworkError": "Erreur de connexion. Veuillez vérifier votre connexion Internet et réessayer.",
+    "Loading": "Connexion en cours..."
+  },
+  "TextGeneratorPage": {
+    "Title": "Générateur de Contenu Intelligent",
+    "Subtitle": "Choisissez un format, décrivez votre idée et laissez l'IA faire le reste.",
+    "ContentTypeLabel": "Quel type de contenu souhaitez-vous créer ?",
+    "Templates": {
+      "instagramPost": "Publication pour Instagram",
+      "twitterThread": "Fil pour Twitter/X",
+      "reelsScript": "Script pour Reels/TikTok",
+      "emailMarketing": "E-mail Marketing"
     },
-   "TextGeneratorPage": {
-      "Title": "Générateur de Contenu Intelligent",
-      "Subtitle": "Choisissez un format, décrivez votre idée et laissez l'IA faire le reste.",
-      "ContentTypeLabel": "Quel type de contenu souhaitez-vous créer ?",
-      "Templates": {
-        "instagramPost": "Publication pour Instagram",
-        "twitterThread": "Fil pour Twitter/X",
-        "reelsScript": "Script pour Reels/TikTok",
-        "emailMarketing": "E-mail Marketing"
-      },
-      "TopicLabel": "Sur quel sujet ou produit ?",
-      "TopicPlaceholder": "Ex: Le lancement d'un nouveau parfum à l'odeur de café avec une touche provocante.",
-      "ButtonText": "Générer le Contenu",
-      "Loading": "Génération en cours...",
-      "ResultTitle": "Votre Contenu Généré :",
-      "GenericError": "Impossible de générer le contenu. Essayez d'affiner votre sujet.",
-      "NetworkError": "Erreur de connexion avec le service d'IA."
-    },
-    "ImageGeneratorPage": {
-      "Title": "Générateur de Vignettes IA",
-      "Subtitle": "Créez des visuels percutants pour vos vidéos et publications en quelques secondes.",
-      "PromptLabel": "Décrivez l'image que vous souhaitez créer",
-      "PromptPlaceholder": "Ex: Un astronaute se relaxant sur une plage de Mars, style art numérique.",
-      "ButtonText": "Générer l'Image",
-      "Loading": "Génération de l'image... Cela peut prendre un moment.",
-      "ResultTitle": "Votre Image Générée :",
-      "GenericError": "Impossible de générer l'image. Veuillez réessayer.",
-      "NetworkError": "Erreur de connexion avec le service d'IA.",
-      "NoImageReturned": "L'IA a traité votre demande mais n'a pas renvoyé d'image. Essayez une autre instruction."
-    },
-    "IdentityErrors": {
-      "PasswordTooShort": "Les mots de passe doivent comporter au moins 8 caractères.",
-      "PasswordRequiresNonAlphanumeric": "Les mots de passe doivent contenir au moins un caractère non alphanumérique.",
-      "PasswordRequiresLower": "Les mots de passe doivent contenir au moins une lettre minuscule ('a'-'z').",
-      "PasswordRequiresUpper": "Les mots de passe doivent contenir au menos une lettre majuscule ('A'-'Z').",
-      "PasswordRequiresDigit": "Les mots de passe doivent contenir au moins un chiffre ('0'-'9')."
-    }
+    "TopicLabel": "Sur quel sujet ou produit ?",
+    "TopicPlaceholder": "Ex: Le lancement d'un nouveau parfum à l'odeur de café avec une touche provocante.",
+    "ButtonText": "Générer le Contenu",
+    "Loading": "Génération en cours...",
+    "ResultTitle": "Votre Contenu Généré :",
+    "GenericError": "Impossible de générer le contenu. Essayez d'affiner votre sujet.",
+    "NetworkError": "Erreur de connexion avec le service d'IA."
+  },
+  "ImageGeneratorPage": {
+    "Title": "Générateur de Vignettes IA",
+    "Subtitle": "Créez des visuels percutants pour vos vidéos et publications en quelques secondes.",
+    "PromptLabel": "Décrivez l'image que vous souhaitez créer",
+    "PromptPlaceholder": "Ex: Un astronaute se relaxant sur une plage de Mars, style art numérique.",
+    "ButtonText": "Générer l'Image",
+    "Loading": "Génération de l'image... Cela peut prendre un moment.",
+    "ResultTitle": "Votre Image Générée :",
+    "GenericError": "Impossible de générer l'image. Veuillez réessayer.",
+    "NetworkError": "Erreur de connexion avec le service d'IA.",
+    "NoImageReturned": "L'IA a traité votre demande mais n'a pas renvoyé d'image. Essayez une autre instruction."
+  },
+  "IdentityErrors": {
+    "PasswordTooShort": "Les mots de passe doivent comporter au moins 8 caractères.",
+    "PasswordRequiresNonAlphanumeric": "Les mots de passe doivent contenir au moins un caractère non alphanumérique.",
+    "PasswordRequiresLower": "Les mots de passe doivent contenir au moins une lettre minuscule ('a'-'z').",
+    "PasswordRequiresUpper": "Les mots de passe doivent contenir au menos une lettre majuscule ('A'-'Z').",
+    "PasswordRequiresDigit": "Les mots de passe doivent contenir au moins un chiffre ('0'-'9')."
+  }
 }

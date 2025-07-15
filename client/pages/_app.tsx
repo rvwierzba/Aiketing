@@ -1,16 +1,19 @@
-// pages/_app.tsx
+// =================================================================
+// ARQUIVO: client/pages/_app.tsx (ATUALIZADO)
+// =================================================================
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { I18nProvider } from '../lib/i18n';
 import { AuthProvider } from '../context/AuthContext';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
+  // A lógica do layout será aplicada dentro de cada página agora
   return (
-    <AuthProvider>
-      <I18nProvider locale={pageProps.i18n}>
+    <I18nProvider locale={pageProps.locale}>
+      <AuthProvider>
         <Component {...pageProps} />
-      </I18nProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </I18nProvider>
   );
 }
 

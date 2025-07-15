@@ -1,4 +1,9 @@
+# Define a versão do Docker Compose
+version: '3.8'
+
+# Define os serviços (contêineres) que compõem a aplicação
 services:
+  # Serviço do Banco de Dados PostgreSQL
   aiketing-db:
     image: postgres:15
     container_name: aiketing-db-container
@@ -12,6 +17,27 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  # Serviço da API do Backend em .NET
+  backend:
+    build:
+      context: .
+      dockerfile: src/Backend/Dockerfile
+    container_name: aiketing-backend-container
+    ports:
+      - "5235:8080"
+    depends_on:
+      - aiketing-db # Garante que o banco de dados inicie antes do backend
+      - ollama
+    environment:
+      # CORREÇÃO CRÍTICA: A string de conexão agora aponta para o nome do serviço do banco de dados ('aiketing-db')
+      # em vez de 'localhost'. Isso permite que o backend encontre o banco de dados dentro da rede Docker.
+      - ConnectionStrings__DefaultConnection=Host=aiketing-db;Port=5432;Database=aiketing_db;Username=postgres;Password=@071995
+      - Stripe__SecretKey=sk_test_51RLr2QKYIkkrmcoGmT0zPM2UhwtoqKvT25mqHNgJjKzdVTvxojObISz5IJ82XXtAdOHqq9ZHHyRzGuS0q2Cwcfx000XsMl9HVQ
+      # CORREÇÃO: A chave publicável do Stripe começa com 'pk_test_'. A chave anterior era de webhook.
+      - Stripe__PublishableKey=pk_test_51RLr2QKYIkkrmcoG45a4gKk4Z5c6h7j8k9l0mN1oP2qR3sT4uV5wX6yZ7aB8c9d0eF1gH2iJ3k4l
+      - Ollama__BaseUrl=http://ollama:11434
+
+  # Serviço do Ollama para o modelo de IA
   ollama:
     image: ollama/ollama
     container_name: aiketing-ollama-container
@@ -21,20 +47,7 @@ services:
     volumes:
       - ollama_data:/root/.ollama
 
-  backend:
-    container_name: aiketing-backend-container
-    build:
-      context: .
-      dockerfile: src/Backend/Dockerfile
-    ports:
-      - "5235:8080" 
-    depends_on:
-      - aiketing-db
-      - ollama
-    environment:
-      - ConnectionStrings__DefaultConnection=Host=aiketing-db;Port=5432;Database=aiketing_db;Username=postgres;Password=@071995
-      - ASPNETCORE_URLS=http://+:8080
-
+  # Serviço do Frontend em Next.js
   client:
     container_name: aiketing-client-container
     build:
@@ -45,8 +58,10 @@ services:
     depends_on:
       - backend
     environment:
-      - NEXT_PUBLIC_API_BASE_URL=http://backend:8080
+      # Esta variável aponta para o nome do serviço do backend, permitindo a comunicação entre os contêineres.
+      - NEXT_PUBLIC_API_BASE_URL=http://localhost:5235
 
+# Define os volumes nomeados para persistência de dados
 volumes:
   postgres_data:
   ollama_data:

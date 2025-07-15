@@ -42,7 +42,7 @@
     "Subtitle": "A simple process for powerful results.",
     "Step1": {
       "Title": "Enter Your Idea",
-      "Description": "Tell the AI what you need: the topic, style, and goal of your content."
+      "Description": "Tell the AI what you need: the topic, the style, and the goal of your content."
     },
     "Step2": {
       "Title": "Generate with One Click",
@@ -63,6 +63,7 @@
         "Price": "$0",
         "Period": "month",
         "ButtonText": "Start Now",
+        "LoadingText": "Processing...",
         "Features": [
           "5 Text Generations/month",
           "3 Thumbnail Generations/month",
@@ -75,6 +76,7 @@
         "Price": "15",
         "Period": "month",
         "ButtonText": "Choose Essential",
+        "LoadingText": "Processing...",
         "Features": [
           "50 Text Generations/month",
           "20 Thumbnail Generations/month",
@@ -87,6 +89,7 @@
         "Price": "49",
         "Period": "month",
         "ButtonText": "Choose Pro",
+        "LoadingText": "Processing...",
         "Features": [
           "200 Text Generations/month",
           "100 Thumbnail Generations/month",
@@ -104,73 +107,77 @@
     "Copyright": "© {year} AIketing. All rights reserved.",
     "CreatedBy": "Created by"
   },
-    "DashboardPage": {
-      "Title": "Your Dashboard",
-      "Subtitle": "Here is a summary of your {plan} plan and your current usage.",
-      "Loading": "Loading information...",
-      "TextUsage": {
-        "Title": "Text Generation Usage"
-      },
-      "ImageUsage": {
-        "Title": "Thumbnail Generation Usage"
-      }
+  "DashboardPage": {
+    "Title": "Your Dashboard",
+    "Subtitle": "Here is a summary of your {plan} plan and your current usage.",
+    "Loading": "Loading information...",
+    "AuthError": "Your session has expired or is invalid. Please log in again.",
+    "NetworkError": "Could not load dashboard data. Check your connection.",
+    "TextUsage": {
+      "Title": "Text Generation Usage"
     },
-    "RegisterPage": {
-      "Title": "Create Your Free Account",
-      "EmailLabel": "Email Address",
-      "EmailPlaceholder": "you@example.com",
-      "PasswordLabel": "Password",
-      "ButtonText": "Create Account",
-      "Success": "Account created successfully! You can now log in.",
-      "GenericError": "An error occurred. Please try again.",
-      "NetworkError": "Connection error. Please check your internet and try again.",
-      "Loading": "Creating account..."
+    "ImageUsage": {
+      "Title": "Thumbnail Generation Usage"
     },
-    "LoginPage": {
-      "Title": "Access Your Account",
-      "EmailLabel": "Email",
-      "EmailPlaceholder": "Your registered email",
-      "PasswordLabel": "Password",
-      "ButtonText": "Sign In",
-      "InvalidCredentials": "Invalid email or password. Please try again.",
-      "NetworkError": "Connection error. Please check your internet and try again.",
-      "Loading": "Signing in..."
+    "CtaButtonText": "Create New Text Content",
+    "CtaButtonImage": "Create New Thumbnail"
+  },
+  "RegisterPage": {
+    "Title": "Create Your Free Account",
+    "EmailLabel": "Email Address",
+    "EmailPlaceholder": "you@example.com",
+    "PasswordLabel": "Password",
+    "ButtonText": "Create Account",
+    "Success": "Account created successfully! You can now log in.",
+    "GenericError": "An error occurred. Please try again.",
+    "NetworkError": "Connection error. Please check your internet and try again.",
+    "Loading": "Creating account..."
+  },
+  "LoginPage": {
+    "Title": "Access Your Account",
+    "EmailLabel": "Email",
+    "EmailPlaceholder": "Your registered email",
+    "PasswordLabel": "Password",
+    "ButtonText": "Sign In",
+    "InvalidCredentials": "Invalid email or password. Please try again.",
+    "NetworkError": "Connection error. Please check your internet and try again.",
+    "Loading": "Signing in..."
+  },
+  "TextGeneratorPage": {
+    "Title": "Intelligent Content Generator",
+    "Subtitle": "Choose a format, describe your idea, and let the AI do the rest.",
+    "ContentTypeLabel": "What type of content do you want to create?",
+    "Templates": {
+      "instagramPost": "Post for Instagram",
+      "twitterThread": "Thread for Twitter/X",
+      "reelsScript": "Script for Reels/TikTok",
+      "emailMarketing": "Email Marketing"
     },
-      "TextGeneratorPage": {
-      "Title": "Intelligent Content Generator",
-      "Subtitle": "Choose a format, describe your idea, and let the AI do the rest.",
-      "ContentTypeLabel": "What type of content do you want to create?",
-      "Templates": {
-        "instagramPost": "Post for Instagram",
-        "twitterThread": "Thread for Twitter/X",
-        "reelsScript": "Script for Reels/TikTok",
-        "emailMarketing": "Email Marketing"
-      },
-      "TopicLabel": "On what topic or product?",
-      "TopicPlaceholder": "e.g., The launch of a new coffee-scented perfume with a provocative edge.",
-      "ButtonText": "Generate Content",
-      "Loading": "Generating...",
-      "ResultTitle": "Your Generated Content:",
-      "GenericError": "Could not generate content. Try refining your topic.",
-      "NetworkError": "Connection error with the AI service."
-    },
-    "ImageGeneratorPage": {
-      "Title": "AI Thumbnail Generator",
-      "Subtitle": "Create impactful visuals for your videos and posts in seconds.",
-      "PromptLabel": "Describe the image you want to create",
-      "PromptPlaceholder": "e.g., An astronaut relaxing on a beach on Mars, digital art style.",
-      "ButtonText": "Generate Image",
-      "Loading": "Generating image... This may take a moment.",
-      "ResultTitle": "Your Generated Image:",
-      "GenericError": "Could not generate the image. Please try again.",
-      "NetworkError": "Connection error with the AI service.",
-      "NoImageReturned": "The AI processed your request but didn't return an image. Try a different prompt."
-    },
-    "IdentityErrors": {
-      "PasswordTooShort": "Passwords must be at least 8 characters.",
-      "PasswordRequiresNonAlphanumeric": "Passwords must have at least one non-alphanumeric character.",
-      "PasswordRequiresLower": "Passwords must have at least one lowercase ('a'-'z').",
-      "PasswordRequiresUpper": "Passwords must have at least one uppercase ('A'-'Z').",
-      "PasswordRequiresDigit": "Passwords must have at least one digit ('0'-'9')."
-    }
+    "TopicLabel": "On what topic or product?",
+    "TopicPlaceholder": "e.g., The launch of a new coffee-scented perfume with a provocative edge.",
+    "ButtonText": "Generate Content",
+    "Loading": "Generating...",
+    "ResultTitle": "Your Generated Content:",
+    "GenericError": "Could not generate content. Try refining your topic.",
+    "NetworkError": "Connection error with the AI service."
+  },
+  "ImageGeneratorPage": {
+    "Title": "AI Thumbnail Generator",
+    "Subtitle": "Create impactful visuals for your videos and posts in seconds.",
+    "PromptLabel": "Describe the image you want to create",
+    "PromptPlaceholder": "e.g., An astronaut relaxing on a beach on Mars, digital art style.",
+    "ButtonText": "Generate Image",
+    "Loading": "Generating image... This may take a moment.",
+    "ResultTitle": "Your Generated Image:",
+    "GenericError": "Could not generate the image. Please try again.",
+    "NetworkError": "Connection error with the AI service.",
+    "NoImageReturned": "The AI processed your request but didn't return an image. Try a different prompt."
+  },
+  "IdentityErrors": {
+    "PasswordTooShort": "Passwords must be at least 8 characters.",
+    "PasswordRequiresNonAlphanumeric": "Passwords must have at least one non-alphanumeric character.",
+    "PasswordRequiresLower": "Passwords must have at least one lowercase ('a'-'z').",
+    "PasswordRequiresUpper": "Passwords must have at least one uppercase ('A'-'Z').",
+    "PasswordRequiresDigit": "Passwords must have at least one digit ('0'-'9')."
+  }
 }

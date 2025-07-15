@@ -1,4 +1,6 @@
-// pages/index.tsx
+// =================================================================
+// ARQUIVO: client/pages/index.tsx (CORREÇÃO FINAL)
+// =================================================================
 import Head from 'next/head';
 import { useI18n, useScopedI18n, getLocaleProps } from '../lib/i18n';
 import { Header } from '../components/Header';
@@ -10,18 +12,15 @@ import { Footer } from '../components/Footer';
 
 const HomePage = () => {
   const t = useI18n();
-  const scopedT = useScopedI18n('Seo.Home');
+  const scopedT = useScopedI18n('Home');
 
   return (
     <>
       <Head>
         <title>{scopedT('Title')}</title>
-        <meta name="description" content={scopedT('Description')} />
+        <meta name="description" content={scopedT('Subtitle')} />
       </Head>
-
       <Header />
-      
-      {/* Seção Hero */}
       <main className="flex flex-col items-center text-center px-4 py-20 md:py-32 bg-brand-light">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-brand-dark">
           {t('Home.Title')}
@@ -36,8 +35,6 @@ const HomePage = () => {
           {t('Cta.ButtonText')}
         </a>
       </main>
-
-      {/* Outras Seções da Página */}
       <BenefitsSection />
       <HowItWorksSection />
       <PricingSection />
@@ -47,22 +44,7 @@ const HomePage = () => {
   );
 };
 
-// Carrega TODAS as traduções necessárias para esta página.
-export const getStaticProps = async (context: any) => {
-  return {
-    props: {
-      ...(await getLocaleProps(context, [
-        'Home', 
-        'Header', 
-        'Benefits', 
-        'HowItWorks', 
-        'Pricing', 
-        'Cta', 
-        'Footer',
-        'Seo'
-      ])),
-    },
-  };
-}
+// CORREÇÃO FINAL E DEFINITIVA
+export const getStaticProps = getLocaleProps();
 
 export default HomePage;

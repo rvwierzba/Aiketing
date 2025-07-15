@@ -1,9 +1,11 @@
-// components/Header.tsx
+// =================================================================
+// ARQUIVO: client/components/Header.tsx (CORREÇÃO FINAL)
+// =================================================================
 import { useI18n } from '../lib/i18n';
 import { useAuth } from '../context/AuthContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import Link from 'next/link';
-import Image from 'next/image'; // 1. Importamos o componente de Imagem do Next.js
+import Image from 'next/image';
 
 export const Header = () => {
   const t = useI18n();
@@ -11,14 +13,13 @@ export const Header = () => {
 
   return (
     <header className="flex justify-between items-center p-4 md:p-6 border-b border-gray-200 bg-white">
-      {/* 2. Substituímos o texto "AIketing" pelo componente de Imagem */}
       <Link href="/">
         <Image
-          src="/logo-aiketing.png" // O caminho é relativo à pasta 'public'
+          src="/logo-aiketing.png"
           alt="AIketing Logo"
-          width={160} // Largura da imagem em pixels
-          height={38} // Altura da imagem em pixels
-          priority // Ajuda a carregar as imagens mais importantes (como o logo) mais rápido
+          width={160}
+          height={38}
+          priority
         />
       </Link>
       <div className="flex items-center gap-6 md:gap-8">
@@ -33,6 +34,7 @@ export const Header = () => {
               <Link href="/dashboard" className="text-gray-600 hover:text-brand-dark font-semibold">
                 {t('Header.Dashboard')}
               </Link>
+              {/* CORREÇÃO DO LINK: Apontando para /history */}
               <Link href="/history" className="text-gray-600 hover:text-brand-dark font-semibold">
                 {t('Header.History')}
               </Link>

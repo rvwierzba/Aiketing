@@ -1,5 +1,5 @@
 {
- "Header": {
+  "Header": {
     "Login": "Entrar",
     "Dashboard": "Painel",
     "Pricing": "Planos",
@@ -63,6 +63,7 @@
         "Price": "R$0",
         "Period": "mês",
         "ButtonText": "Comece Agora",
+        "LoadingText": "Processando...",
         "Features": [
           "5 Gerações de Texto/mês",
           "3 Gerações de Thumbnail/mês",
@@ -75,6 +76,7 @@
         "Price": "29",
         "Period": "mês",
         "ButtonText": "Escolher Essencial",
+        "LoadingText": "Processando...",
         "Features": [
           "50 Gerações de Texto/mês",
           "20 Gerações de Thumbnail/mês",
@@ -87,6 +89,7 @@
         "Price": "99",
         "Period": "mês",
         "ButtonText": "Escolher Pro",
+        "LoadingText": "Processando...",
         "Features": [
           "200 Gerações de Texto/mês",
           "100 Gerações de Thumbnail/mês",
@@ -104,61 +107,77 @@
     "Copyright": "© {year} AIketing. Todos os direitos reservados.",
     "CreatedBy": "Criado por"
   },
-    "DashboardPage": {
-      "Title": "Seu Painel",
-      "Subtitle": "Aqui está um resumo do seu plano {plan} e seu uso atual.",
-      "Loading": "Carregando informações...",
-      "TextUsage": {
-        "Title": "Uso de Geração de Texto"
-      },
-      "ImageUsage": {
-        "Title": "Uso de Geração de Thumbnail"
-      }
+  "DashboardPage": {
+    "Title": "Seu Painel",
+    "Subtitle": "Aqui está um resumo do seu plano {plan} e seu uso atual.",
+    "Loading": "Carregando informações...",
+    "AuthError": "Sua sessão expirou ou é inválida. Por favor, faça o login novamente.",
+    "NetworkError": "Não foi possível carregar os dados do painel. Verifique sua conexão.",
+    "TextUsage": {
+      "Title": "Uso de Geração de Texto"
     },
-    "RegisterPage": {
-      "Title": "Crie sua Conta Gratuita",
-      "EmailLabel": "Endereço de E-mail",
-      "EmailPlaceholder": "voce@exemplo.com",
-      "PasswordLabel": "Senha",
-      "ButtonText": "Criar Conta",
-      "Success": "Conta criada com sucesso! Você já pode fazer o login.",
-      "GenericError": "Ocorreu um erro. Por favor, tente novamente.",
-      "NetworkError": "Erro de conexão. Verifique sua internet e tente novamente.",
-      "Loading": "Criando conta..."
+    "ImageUsage": {
+      "Title": "Uso de Geração de Thumbnail"
     },
-    "LoginPage": {
-      "Title": "Acesse sua Conta",
-      "EmailLabel": "E-mail",
-      "EmailPlaceholder": "Seu e-mail cadastrado",
-      "PasswordLabel": "Senha",
-      "ButtonText": "Entrar",
-      "InvalidCredentials": "E-mail ou senha inválidos. Por favor, tente novamente.",
-      "NetworkError": "Erro de conexão. Verifique sua internet e tente novamente.",
-      "Loading": "Entrando..."
+    "CtaButtonText": "Criar Novo Conteúdo de Texto",
+    "CtaButtonImage": "Criar Novo Thumbnail"
+  },
+  "RegisterPage": {
+    "Title": "Crie sua Conta Gratuita",
+    "EmailLabel": "Endereço de E-mail",
+    "EmailPlaceholder": "voce@exemplo.com",
+    "PasswordLabel": "Senha",
+    "ButtonText": "Criar Conta",
+    "Success": "Conta criada com sucesso! Você já pode fazer o login.",
+    "GenericError": "Ocorreu um erro. Por favor, tente novamente.",
+    "NetworkError": "Erro de conexão. Verifique sua internet e tente novamente.",
+    "Loading": "Criando conta..."
+  },
+  "LoginPage": {
+    "Title": "Acesse sua Conta",
+    "EmailLabel": "E-mail",
+    "EmailPlaceholder": "Seu e-mail cadastrado",
+    "PasswordLabel": "Senha",
+    "ButtonText": "Entrar",
+    "InvalidCredentials": "E-mail ou senha inválidos. Por favor, tente novamente.",
+    "NetworkError": "Erro de conexão. Verifique sua internet e tente novamente.",
+    "Loading": "Entrando..."
+  },
+  "TextGeneratorPage": {
+    "Title": "Gerador de Conteúdo Inteligente",
+    "Subtitle": "Escolha um formato, descreva sua ideia e deixe a IA fazer o resto.",
+    "ContentTypeLabel": "Qual tipo de conteúdo você quer criar?",
+    "Templates": {
+      "instagramPost": "Post para Instagram",
+      "twitterThread": "Thread para Twitter/X",
+      "reelsScript": "Roteiro para Reels/TikTok",
+      "emailMarketing": "E-mail Marketing"
     },
-    "TextGeneratorPage": {
-      "Title": "Gerador de Conteúdo Inteligente",
-      "Subtitle": "Escolha um formato, descreva sua ideia e deixe a IA fazer o resto.",
-      "ContentTypeLabel": "Qual tipo de conteúdo você quer criar?",
-      "Templates": {
-        "instagramPost": "Post para Instagram",
-        "twitterThread": "Thread para Twitter/X",
-        "reelsScript": "Roteiro para Reels/TikTok",
-        "emailMarketing": "E-mail Marketing"
-      },
-      "TopicLabel": "Sobre qual tópico ou produto?",
-      "TopicPlaceholder": "Ex: O lançamento de um novo perfume com cheiro de café e uma pegada provocante.",
-      "ButtonText": "Gerar Conteúdo",
-      "Loading": "Gerando...",
-      "ResultTitle": "Seu Conteúdo Gerado:",
-      "GenericError": "Não foi possível gerar o conteúdo. Tente refinar seu tópico.",
-      "NetworkError": "Erro de conexão com o serviço de IA."
-    },
-    "IdentityErrors": {
-      "PasswordTooShort": "A senha deve ter pelo menos 8 caracteres.",
-      "PasswordRequiresNonAlphanumeric": "A senha deve ter pelo menos um caractere especial (ex: @, #, !, $).",
-      "PasswordRequiresLower": "A senha deve ter pelo menos uma letra minúscula ('a'-'z').",
-      "PasswordRequiresUpper": "A senha deve ter pelo menos uma letra maiúscula ('A'-'Z').",
-      "PasswordRequiresDigit": "A senha deve ter pelo menos um número ('0'-'9')."
-    }
+    "TopicLabel": "Sobre qual tópico ou produto?",
+    "TopicPlaceholder": "Ex: O lançamento de um novo perfume com cheiro de café e uma pegada provocante.",
+    "ButtonText": "Gerar Conteúdo",
+    "Loading": "Gerando...",
+    "ResultTitle": "Seu Conteúdo Gerado:",
+    "GenericError": "Não foi possível gerar o conteúdo. Tente refinar seu tópico.",
+    "NetworkError": "Erro de conexão com o serviço de IA."
+  },
+  "ImageGeneratorPage": {
+    "Title": "Gerador de Thumbnails com IA",
+    "Subtitle": "Crie visuais de impacto para seus vídeos e posts em segundos.",
+    "PromptLabel": "Descreva a imagem que você quer criar",
+    "PromptPlaceholder": "Ex: Um astronauta relaxando em uma praia em Marte, estilo arte digital.",
+    "ButtonText": "Gerar Imagem",
+    "Loading": "Gerando imagem... Isso pode levar um momento.",
+    "ResultTitle": "Sua Imagem Gerada:",
+    "GenericError": "Não foi possível gerar a imagem. Por favor, tente novamente.",
+    "NetworkError": "Erro de conexão com o serviço de IA.",
+    "NoImageReturned": "A IA processou seu pedido, mas não retornou uma imagem. Tente um prompt diferente."
+  },
+  "IdentityErrors": {
+    "PasswordTooShort": "A senha deve ter pelo menos 8 caracteres.",
+    "PasswordRequiresNonAlphanumeric": "A senha deve ter pelo menos um caractere especial (ex: @, #, !, $).",
+    "PasswordRequiresLower": "A senha deve ter pelo menos uma letra minúscula ('a'-'z').",
+    "PasswordRequiresUpper": "A senha deve ter pelo menos uma letra maiúscula ('A'-'Z').",
+    "PasswordRequiresDigit": "A senha deve ter pelo menos um número ('0'-'9')."
+  }
 }
